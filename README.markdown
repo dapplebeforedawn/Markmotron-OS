@@ -154,6 +154,9 @@ Markmotron.on 'http.get.billPay'  , initiateHttpGetBill
 Markmotron.on 'bill-pay.pay-bill' , initiateGetBill
 Markmotron.on 'destroy'           , destroy
 ````
+## Running the development server
+
+You may have noticed the `Proc` file.  Start the development server with `foreman start`  (you'll need the [foreman gem](https://github.com/ddollar/foreman) if you don't alreday have it).  Then you can put your ENV variables in a `.env` file in the repository root (see `.env.sample`)
 
 ## TODO
 
