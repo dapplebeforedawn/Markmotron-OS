@@ -1,0 +1,36 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.2"
+  },
+  "bundledDependencies":[
+    "./node_modules/dapple-twilio",
+    "./node_modules/dapple-phantom",
+    "./node_modules/dapple-imap",
+    "./node_modules/dapple-aws",
+    "./node_modules/dapple-sendgrid",
+    "./node_modules/dapple-loader",
+    "./node_modules/remote-coffee"
+  ],
+  "dependencies": {
+    "express": "3.3.4",
+    "qs": "*",
+    "jade": "*",
+    "ranger": "*",
+    "async": "*",
+    "uuid": "*",
+    "coffee-script": "*",
+    "bitly": "*",
+    "imap": "*",
+    "mimelib-noiconv": "*",
+    "aws-sdk": "*",
+    "sendgrid": "*",
+    "less-middleware": "*"
+  }
+}
