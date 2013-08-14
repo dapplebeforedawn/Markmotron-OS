@@ -1,26 +1,26 @@
 # Markmotron
 
-hi.  The markmotron started out as a sample campfire bot that would listen for words like "breakfast" and then and me a text message.  The if I failed to place an breafast order (yes, my employer buys breakfast some times.  They're amazing www.covermymeds.com/main/careers), it would order a default breakfast for me, acting as sort-if breakfast ordering dead-man's switch.
+hi.  The markmotron started out as a sample campfire bot that would listen for words like "breakfast" and then send me a text message.  If I failed to place a breakfast order (yes, my employer buys breakfast sometimes.  They're amazing [CoverMyMeds](www.covermymeds.com/main/careers) ), it would order a default breakfast for me, acting as sort-of breakfast ordering dead-man's switch.
 
-But why stop at breakfast?!  There's lots of little annoyances that can be scripted away.  How about this one: One I get an email that a bill is due from my insurance provider, send me a text of the bill amount, and ask me (y/n) if I want the markmotron to pay it?  If I say "yes", use phantomJS to manipulate the page and pay the bill.  If I say "no", then GTFO robot.
+But why stop at breakfast?!  There's lots of little annoyances that can be scripted away.  How about this one: When I get an email that a bill is due from my insurance provider, send me a text of the bill amount, and ask me (y/n) if I want the markmotron to pay it?  If I say "yes", use PhantomJS to manipulate the page and pay the bill.  If I say "no", then GTFO robot.
 
-But I don't really want to commit code, and maintain a big code base of automation scripts.  I like github, and anyone will tell you that i _REALLLY_ like gists.  So what if we keep all the actual scripts in gists that can be reloaded by the markmotron dynamically?  Now that's something worth getting outta bed for (well that and free BLTs from the Warehouse Cafe).
+But I don't really want to commit code, and maintain a big code base of automation scripts.  I like github, and anyone will tell you that I _REALLLY_ like gists.  So what if we keep all the actual scripts in gists that can be reloaded by the markmotron dynamically?  Now that's something worth getting outta bed for (well that and free BLTs from the Warehouse Cafe).
 
-So what started out as a ho-hum chatbot morphed into a framework for automating your life away with little gists.  And thanks to the encouragement of @justinrolston, it's opensource too.
+So what started out as a ho-hum chatbot morphed into a framework for automating your life away with little gists.  And thanks to the encouragement of @justinrolston, it's open source too.
 
 ----
 
 ## What is the markmotron in computer-speak?
 
-- events. events. events.  All communication between markmotron components is done through events.  Just register and listen on the Markmotron global object.  You can of course register your own.  There are a few pre-bundled events for incomming email, HTTP GETs and POSTs done on the markmotron
+- events. events. events.  All communication between markmotron components is done through events.  Just register and listen on the `Markmotron` global object.  You can of course register your own.  There are a few pre-bundled events for incomming email, HTTP GETs and POSTs done on the markmotron
 
 - Building blocks included.  Your gist script files should be as simple as possible.  To help you out markmotron comes pre-bundled with shortcut modules for interacting with the world
   - `dapple-twilio  `: for sending text messages 
-  - `dapple-aws     `: for putting files in and S3 bucket (has a hardcoded bucket name, you'll want to change that)
+  - `dapple-aws     `: for putting files in an S3 bucket
   - `dapple-imap    `: for working with email
   - `dapple-phantom `: for manipulating the bundled phantomJS process (advanced)
   - `dapple-sendgrid`: for sending email
-  - `ranger         `: for interacting with Campfire chat rooms (staying true to roots!)
+  - `ranger         `: for interacting with Campfire chat rooms (staying true to its roots!)
   - `bitly          `: for shortening URLs
 
   I recommended you store your credentials in ENV variables, which will be available to you through the global `env`
@@ -47,7 +47,7 @@ So what started out as a ho-hum chatbot morphed into a framework for automating 
 
 ## What's required of my scripts
 
-- The need to be valid coffeescript.
+- They need to be valid coffeescript.
 - The markmotron contract:  When it's time for scripts to self-reload your script should know now to clean up by registering for `Markmotron`'s `destroy` event.  For example:
 
   ````
@@ -71,7 +71,7 @@ So what started out as a ho-hum chatbot morphed into a framework for automating 
 
 ## Working with PhantomJS
 
-Since PhantomJS is it's own process, and has it's own event loop, it can't be run as a typical node module. (without some really ugly hacks).  Lucky-you, the markmotron handles all the messy IPC and named pipes for you.  Using the provided `dapple-phantom` module just give your `Phantom` object the URL of a coffeescript PhantomJS script, and environment to bind to (probably just use the affore-mentioned `env) and a callback.  When the script is done, the callback is holla' back.
+Since PhantomJS is it's own process, and has it's own event loop, it can't be run as a typical node module. (without some really ugly hacks).  Lucky-you, the markmotron handles all the messy IPC and named pipes for you.  Using the provided `dapple-phantom` module just give your `Phantom` object the URL of a coffeescript PhantomJS script, and environment to bind to (probably just use the affore-mentioned `env) and a callback.  When the script is done, the callback will holla' back.
 
 ````
 Phantom = require 'dapple-phantom'
@@ -160,7 +160,7 @@ You may have noticed the `Proc` file.  Start the development server with `forema
 
 ## TODO
 
-I find my own lack of tests disturbing.  PRs accepted
+I find my own lack of tests disturbing.  PRs accepted.
 
 ## Parting words
 
